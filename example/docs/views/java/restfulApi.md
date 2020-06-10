@@ -9,6 +9,7 @@ tags:
 ## RESTful API实践
 ###  Methods方法
 
+
 ```bash
 GET /articles/1	#读取，返回200
 PUT /articles/1	#编辑（或路径），返回200

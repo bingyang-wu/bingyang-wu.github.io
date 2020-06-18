@@ -31,16 +31,21 @@ jobs:
         with:
           node-version: 10.x
 
-      - name: Setup Hexo env # 初始化 Hexo 环境
+      - name: Setup Hexo Environment # 初始化 Hexo 环境
         run: |
           npm install hexo-cli -g
           npm install
 
+      - name: Hexo Generate public
+        run: |
+          hexo clean
+          hexo generate
+
 
       # 部署到 GitHub Pages
-#      - name: Deploy
-#        uses: JamesIves/github-pages-deploy-action@releases/v3
-#        with:
-#          ACCESS_TOKEN: ${{ secrets.GITPAGE_TOKEN }}
-#          BRANCH: master
-#          FOLDER: example/docs/public
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.GITPAGE_TOKEN }}
+          BRANCH: master
+          FOLDER: public # 上传到master分支的文件夹

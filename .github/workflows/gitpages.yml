@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages
+name: Hexo
 
 # 触发条件：在 push 到 dev 分支后
 on:
@@ -27,9 +27,8 @@ jobs:
 #        run:  npm run build
       - name: Hexo install
         run: |
-          npm install hexo-cli
+          npm install hexo-cli -g
           npm install
-          hexo v
 
       # 部署到 GitHub Pages
 #      - name: Deploy

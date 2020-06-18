@@ -19,17 +19,20 @@ jobs:
           persist-credentials: false
 
       # npm install
-      - name: Install
-        run: npm install
+#      - name: Install
+#        run: npm install
 
-      # 生成静态文件
-      - name: Build
-        run:  npm run build
+#      # 生成静态文件
+#      - name: Build
+#        run:  npm run build
+      - name: Hexo version
+        run: hexo v
+
 
       # 部署到 GitHub Pages
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.GITPAGE_TOKEN }}
-          BRANCH: master
-          FOLDER: example/docs/public
+#      - name: Deploy
+#        uses: JamesIves/github-pages-deploy-action@releases/v3
+#        with:
+#          ACCESS_TOKEN: ${{ secrets.GITPAGE_TOKEN }}
+#          BRANCH: master
+#          FOLDER: example/docs/public

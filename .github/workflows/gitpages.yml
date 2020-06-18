@@ -25,10 +25,17 @@ jobs:
 #      # 生成静态文件
 #      - name: Build
 #        run:  npm run build
-      - name: Hexo install
+
+      - name: Use Node.js 10.x # 指定 Node.js 版本
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Setup Hexo env # 初始化 Hexo 环境
         run: |
+          npm install hexo-cli -g
           npm install
-          hexo v
+
 
       # 部署到 GitHub Pages
 #      - name: Deploy

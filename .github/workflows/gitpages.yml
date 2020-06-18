@@ -26,11 +26,10 @@ jobs:
 #      - name: Build
 #        run:  npm run build
       - name: Hexo install
-        run: npm install hexo-cli -g
-
-      - name: Hexo version
-        run: hexo v
-
+        run: |
+          npm install hexo-cli -g
+          npm install
+          hexo v
 
       # 部署到 GitHub Pages
 #      - name: Deploy

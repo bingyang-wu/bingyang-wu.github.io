@@ -27,7 +27,7 @@ jobs:
 #        run:  npm run build
       - name: Hexo install
         run: |
-          npm install hexo-cli -g
+          npm install hexo-cli
           npm install
           hexo v
 

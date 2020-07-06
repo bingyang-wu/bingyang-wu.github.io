@@ -127,7 +127,8 @@ cdn:
 
 # Post info settings
 # ---------------
-avatar: https://pic.cnblogs.com/avatar/2035223/20200512095915.png
+#avatar: https://pic.cnblogs.com/avatar/2035223/20200512095915.png
+avatar: https://gitee.com/bingyangwu/img/raw/master/img/20200512095915.png
 
 top_img: true # false or url of img
 

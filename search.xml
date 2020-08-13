@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Win10开启snmp找不到</title>
+      <link href="/2020/08/13/2020-08-13-win10%E5%BC%80%E5%90%AFsnmp%E6%89%BE%E4%B8%8D%E5%88%B0/"/>
+      <url>/2020/08/13/2020-08-13-win10%E5%BC%80%E5%90%AFsnmp%E6%89%BE%E4%B8%8D%E5%88%B0/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>登陆管理员账户，按键盘【WINDOWS】键，输入【windows powershell】</p></li><li><p>鼠标右击【windows powershell】，选【以管理员运行】</p></li><li><p>输入以下命令：</p></li></ol><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Get-WindowsCapability -Online -Name “SNMP*”</span><br><span class="line">Add-WindowsCapability -Online -Name “SNMP.Client~~~~0.0.1.0”</span><br><span class="line">Get-WindowsCapability -Online -Name “SNMP*”</span><br></pre></td></tr></table></figure><ol start="4"><li><p>同时按【WIN+R】键，输入services.msc</p></li><li><p>找到【SNMP】服务，双击打开</p></li><li><p>点击【启动】</p></li><li><p>启动类型选择【自动】</p></li><li><p>确定</p></li><li><p>重启机器</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> snmp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> snmp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SNMP接收中文问题</title>
       <link href="/2020/07/29/2020-07-29-SNMP%E6%8E%A5%E6%94%B6%E4%B8%AD%E6%96%87%E9%97%AE%E9%A2%98/"/>
       <url>/2020/07/29/2020-07-29-SNMP%E6%8E%A5%E6%94%B6%E4%B8%AD%E6%96%87%E9%97%AE%E9%A2%98/</url>
@@ -25,31 +50,6 @@
             <tag> snmp </tag>
             
             <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Win10����snmp�Ҳ���</title>
-      <link href="/2020/07/29/2020-08-13-win10%E5%BC%80%E5%90%AFsnmp%E6%89%BE%E4%B8%8D%E5%88%B0/"/>
-      <url>/2020/07/29/2020-08-13-win10%E5%BC%80%E5%90%AFsnmp%E6%89%BE%E4%B8%8D%E5%88%B0/</url>
-      
-        <content type="html"><![CDATA[<ol><li>��½����Ա�˻��������̡�WINDOWS���������롾windows powershell��</li><li>����һ���windows powershell����ѡ���Թ���Ա���С�</li><li>�ֱ������������</li></ol><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Get-WindowsCapability -Online -Name ��SNMP*��</span><br><span class="line">Add-WindowsCapability -Online -Name ��SNMP.Client~~~~0.0.1.0��</span><br><span class="line">Get-WindowsCapability -Online -Name ��SNMP*��</span><br></pre></td></tr></table></figure><ol start="4"><li>ͬʱ����WIN+R����������services.msc</li><li>�ҵ���SNMP������˫����</li><li>�����������</li><li>��������ѡ���Զ���</li><li>ȷ��</li><li>��������</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> snmp </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> snmp </tag>
             
         </tags>
       

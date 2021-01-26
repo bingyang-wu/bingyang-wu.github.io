@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Java多个文件缩后下载</title>
+      <link href="/2021/01/26/2021-01-26-Java%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E7%BC%A9%E5%90%8E%E4%B8%8B%E8%BD%BD/"/>
+      <url>/2021/01/26/2021-01-26-Java%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E7%BC%A9%E5%90%8E%E4%B8%8B%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">download</span><span class="params">(Long id, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 数据库里查出来的数据</span></span><br><span class="line">       Optional&lt;OutgoingLog&gt; optional = outgoingLogRepository.findByIdAndDeletedFalse(id);</span><br><span class="line">       <span class="keyword">if</span> (!optional.isPresent()) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> AppException(AppErrorEnums.DATA_IS_NOT_EXIST);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       ByteArrayOutputStream bos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">       ZipOutputStream zip = <span class="keyword">new</span> ZipOutputStream(bos);</span><br><span class="line"></span><br><span class="line">       List&lt;FileStorage&gt; files = optional.get().getFileStorage();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (FileStorage fileStorage : files) &#123;</span><br><span class="line">           <span class="keyword">byte</span>[] bytes = fileStorageService.getFileObject(fileStorage);</span><br><span class="line"></span><br><span class="line">           <span class="comment">// 压进压缩包并设置文件名</span></span><br><span class="line">           zip.putNextEntry(<span class="keyword">new</span> ZipEntry(fileStorage.getFileName()));</span><br><span class="line">           IOUtils.write(bytes, zip);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       zip.close();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">byte</span>[] data = bos.toByteArray();</span><br><span class="line">       String fileName = DateUtils.dateFormat(System.currentTimeMillis()) + <span class="string">".zip"</span>;</span><br><span class="line">       response.reset();</span><br><span class="line">       response.setHeader(<span class="string">"content-disposition"</span>, <span class="string">"attachment;filename*=UTF-8''"</span></span><br><span class="line">               + URLEncoder.encode(fileName, <span class="string">"UTF-8"</span>));</span><br><span class="line">       IOUtils.write(data, response.getOutputStream());</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> IO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java设置SetCookie属性</title>
       <link href="/2020/10/23/2020-10-23-Java%E8%AE%BE%E7%BD%AESetCookie%E5%B1%9E%E6%80%A7%E7%BD%AE/"/>
       <url>/2020/10/23/2020-10-23-Java%E8%AE%BE%E7%BD%AESetCookie%E5%B1%9E%E6%80%A7%E7%BD%AE/</url>

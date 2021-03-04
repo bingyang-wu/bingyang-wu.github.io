@@ -5,8 +5,8 @@
     
     <entry>
       <title>JVM分配担保</title>
-      <link href="/2021/02/25/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/"/>
-      <url>/2021/02/25/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/</url>
+      <link href="/2021/03/04/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/"/>
+      <url>/2021/03/04/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/</url>
       
         <content type="html"><![CDATA[<p><strong>分配担保</strong>：新生代一般分为一个Eden区和两个Survivor区 默认比例是8:1:1, 一次MinorGC会回收Eden和一个Surivior区中的垃圾对象，然后存活的会进入另一个Surivior区，当一次回收后，另一个Surivior区不足以容纳存活的对象时，会依赖其他区域（老年代）进行分配担保。</p>]]></content>
       
@@ -128,7 +128,34 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> snmp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux环境下JDK安装</title>
+      <link href="/2020/03/30/2020-03-30-Linux%E7%8E%AF%E5%A2%83%E4%B8%8BJDK%E5%AE%89%E8%A3%85/"/>
+      <url>/2020/03/30/2020-03-30-Linux%E7%8E%AF%E5%A2%83%E4%B8%8BJDK%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><h3 id="将JDK导入opt目录下面的software文件夹"><a href="#将JDK导入opt目录下面的software文件夹" class="headerlink" title="将JDK导入opt目录下面的software文件夹"></a>将JDK导入opt目录下面的software文件夹</h3><h3 id="解压JDK到-opt-module目录下"><a href="#解压JDK到-opt-module目录下" class="headerlink" title="解压JDK到/opt/module目录下"></a>解压JDK到/opt/module目录下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u144-linux-x64.tar.gz -C /opt/module/</span><br></pre></td></tr></table></figure><h3 id="配置JDK环境变量"><a href="#配置JDK环境变量" class="headerlink" title="配置JDK环境变量"></a>配置JDK环境变量</h3><h4 id="获取jdk路径"><a href="#获取jdk路径" class="headerlink" title="获取jdk路径"></a>获取jdk路径</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@iZbp10zux1zpk3ksssbyu1Z jdk1.8.0_144]$ pwd</span><br></pre></td></tr></table></figure><p>/opt/module/jdk1.8.0_144</p><h4 id="打开-etc-profile文件"><a href="#打开-etc-profile文件" class="headerlink" title="打开/etc/profile文件"></a>打开/etc/profile文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure><h4 id="在profile文件末尾添加JDK路径"><a href="#在profile文件末尾添加JDK路径" class="headerlink" title="在profile文件末尾添加JDK路径"></a>在profile文件末尾添加JDK路径</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">JAVA_HOME</span></span><br><span class="line">export JAVA_HOME=/opt/module/jdk1.8.0_144</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure><h4 id="保存后退出"><a href="#保存后退出" class="headerlink" title="保存后退出"></a>保存后退出</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wq</span><br></pre></td></tr></table></figure><h4 id="让修改后的文件生效"><a href="#让修改后的文件生效" class="headerlink" title="让修改后的文件生效"></a>让修改后的文件生效</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure><h4 id="测试JDK是否安装成功"><a href="#测试JDK是否安装成功" class="headerlink" title="测试JDK是否安装成功"></a>测试JDK是否安装成功</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
             
             <tag> Java </tag>
             

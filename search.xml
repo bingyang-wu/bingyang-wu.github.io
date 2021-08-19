@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>JVM分配担保</title>
+      <link href="/2021/08/19/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/"/>
+      <url>/2021/08/19/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/</url>
+      
+        <content type="html"><![CDATA[<p><strong>分配担保</strong>：新生代一般分为一个Eden区和两个Survivor区 默认比例是8:1:1, 一次MinorGC会回收Eden和一个Surivior区中的垃圾对象，然后存活的会进入另一个Surivior区，当一次回收后，另一个Surivior区不足以容纳存活的对象时，会依赖其他区域（老年代）进行分配担保。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>将文件夹打成war包</title>
       <link href="/2021/08/13/2021-08-13-%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E6%88%90war%E5%8C%85/"/>
       <url>/2021/08/13/2021-08-13-%E5%B0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%93%E6%88%90war%E5%8C%85/</url>
@@ -21,33 +48,6 @@
         <tags>
             
             <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JVM分配担保</title>
-      <link href="/2021/08/13/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/"/>
-      <url>/2021/08/13/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/</url>
-      
-        <content type="html"><![CDATA[<p><strong>分配担保</strong>：新生代一般分为一个Eden区和两个Survivor区 默认比例是8:1:1, 一次MinorGC会回收Eden和一个Surivior区中的垃圾对象，然后存活的会进入另一个Surivior区，当一次回收后，另一个Surivior区不足以容纳存活的对象时，会依赖其他区域（老年代）进行分配担保。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> JVM </tag>
             
         </tags>
       
@@ -85,19 +85,19 @@
       <link href="/2021/05/16/2021-05-16-%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E4%B8%8D%E6%98%AF%E4%BA%8C%E7%9A%84%E6%AC%A1%E6%96%B9/"/>
       <url>/2021/05/16/2021-05-16-%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E4%B8%8D%E6%98%AF%E4%BA%8C%E7%9A%84%E6%AC%A1%E6%96%B9/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> scale = ;</span><br><span class="line"><span class="keyword">if</span> ((scale &amp; (scale-<span class="number">1</span>)) == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> scale = ;</span><br><span class="line"><span class="keyword">if</span> ((scale != <span class="number">1</span>) &amp;&amp; ((scale &amp; (scale - <span class="number">1</span>)) == <span class="number">0</span>)) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
-          <category> Linux </category>
+          <category> Java </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> Java </tag>
             
         </tags>
       

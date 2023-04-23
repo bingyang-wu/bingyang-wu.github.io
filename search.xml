@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>Windows批量修改或去除文件前缀脚本</title>
+      <link href="/2023/04/23/2023-04-23-Windows%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%88%96%E5%8E%BB%E9%99%A4%E6%96%87%E4%BB%B6%E5%89%8D%E7%BC%80%E8%84%9A%E6%9C%AC/"/>
+      <url>/2023/04/23/2023-04-23-Windows%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%88%96%E5%8E%BB%E9%99%A4%E6%96%87%E4%BB%B6%E5%89%8D%E7%BC%80%E8%84%9A%E6%9C%AC/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">chcp 65001</span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">setlocal EnableDelayedExpansion</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> /p folderPath=<span class="string">"请输入需要修改前缀的文件夹路径: "</span></span><br><span class="line"><span class="built_in">set</span> /p oldPrefix=<span class="string">"请输入原前缀: "</span></span><br><span class="line"><span class="built_in">set</span> /p newPrefix=<span class="string">"请输入新前缀: "</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> %%i <span class="keyword">in</span> (<span class="string">"%folderPath%\%oldPrefix%*"</span>) <span class="keyword">do</span> (</span><br><span class="line">    <span class="built_in">set</span> <span class="string">"filename=%%~ni"</span></span><br><span class="line">    <span class="built_in">set</span> <span class="string">"newname=!filename:%oldPrefix%=%newPrefix%!"</span></span><br><span class="line">    ren <span class="string">"%%i"</span> <span class="string">"!newname!%%~xi"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"修改完成。"</span></span><br></pre></td></tr></table></figure><p>使用脚本的步骤如下：</p><ol><li>打开文本编辑器（例如Notepad++、Sublime Text等），将上述脚本代码复制粘贴到编辑器中。</li><li>将脚本保存为扩展名为<strong><code>.bat</code></strong>的文件，例如<strong><code>rename_files.bat</code></strong>。</li><li>双击该文件来运行脚本。</li><li>根据提示输入相应参数。</li><li>如果需要去除前缀,在输入新前缀时直接回车</li></ol><p>需要注意的是，在运行脚本之前，请务必备份你的数据，以防意外情况。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM分配担保</title>
+      <link href="/2023/04/23/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/"/>
+      <url>/2023/04/23/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/</url>
+      
+        <content type="html"><![CDATA[<p><strong>分配担保</strong>：新生代一般分为一个Eden区和两个Survivor区 默认比例是8:1:1, 一次MinorGC会回收Eden和一个Surivior区中的垃圾对象，然后存活的会进入另一个Surivior区，当一次回收后，另一个Surivior区不足以容纳存活的对象时，会依赖其他区域（老年代）进行分配担保。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>npm配置淘宝镜像</title>
       <link href="/2023/03/13/2023-03-13-npm%E8%AE%BE%E7%BD%AE%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F/"/>
       <url>/2023/03/13/2023-03-13-npm%E8%AE%BE%E7%BD%AE%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F/</url>
@@ -21,33 +73,6 @@
         <tags>
             
             <tag> node - 前端 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JVM分配担保</title>
-      <link href="/2023/03/13/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/"/>
-      <url>/2023/03/13/2021-01-28-JVM%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D/</url>
-      
-        <content type="html"><![CDATA[<p><strong>分配担保</strong>：新生代一般分为一个Eden区和两个Survivor区 默认比例是8:1:1, 一次MinorGC会回收Eden和一个Surivior区中的垃圾对象，然后存活的会进入另一个Surivior区，当一次回收后，另一个Surivior区不足以容纳存活的对象时，会依赖其他区域（老年代）进行分配担保。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> JVM </tag>
             
         </tags>
       

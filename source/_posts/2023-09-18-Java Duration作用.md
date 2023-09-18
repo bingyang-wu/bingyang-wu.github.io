@@ -1,5 +1,5 @@
 ---
-title: Elasticsearch复制索引数据到另一个索引
+title: Java Duration作用
 date: 2023-09-18 14:34:00
 tags: 
 	- Java
